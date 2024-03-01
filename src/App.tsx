@@ -1,3 +1,4 @@
+import AstronautComponent from './components/AstronautComponent';
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -7,6 +8,11 @@ import astronaut from './Interfaces/interfaces';
 function App() {
 
   const[astronautInfo, setAstronautInfo] = useState<astronaut>()
+  let [count, setCount] = useState<number>(0)
+
+  const nextPage = () => {
+    setCount(count+1)
+  }
 
   useEffect(() => {
     const astronautData = async () => {
@@ -18,7 +24,10 @@ function App() {
 
   return (
     <div>
-    <h1>{astronautInfo?.people.map(person => `${person.name} ${person.craft} `)}</h1>
+      <button onClick={ () => nextPage() } >Next Page</button>
+      {
+       astronautInfo && <AstronautComponent shipName={astronautInfo.crafts[count].shipName} members={astronautInfo.crafts[count].members} /> 
+      }
     </div>
   );
 }
