@@ -1,6 +1,7 @@
 ### Unions
 What is a Union?
     Unions allow you to declare a variable that could be more than one type or morde than one value
+    
     Example: let myVariable: string | boolean;
              let myName: "Isaiah" | "Jesse";
 
@@ -12,7 +13,9 @@ What are Generics
 
     We will using Generics for built in functions and types, such as the useState<> and its type
     setActionState<>
+
     Example: let [name, setName] = useState<string>("")
 
     You can also use Generics like parameters when creating interfaces
+
     Example: interface IStuff<Generic> { stuff: <Generic> }
